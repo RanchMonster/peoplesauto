@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Header } from "./components/header";
+import { InventoryGrid } from "./components/inventory-grid";
+import { VEHICLES } from "./lib/inventory";
 
 export default function Home() {
    return (
@@ -32,6 +34,10 @@ export default function Home() {
                   </button>
                </div>
             </div>
+         </section>
+
+         <section id="inventory" className="mx-auto max-w-6xl scroll-mt-24 px-4 pb-16">
+            <InventoryGrid vehicles={VEHICLES} />
          </section>
       </div>
    );
