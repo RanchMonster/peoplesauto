@@ -6,11 +6,6 @@ export const metadata: Metadata = {
    title: "Sell Your Vehicle | Peoples Auto",
 };
 
-const labelClasses =
-   "mb-1.5 block text-sm font-medium text-zinc-700";
-const inputClasses =
-   "w-full bg-white rounded border-2 border-zinc-400 px-3 py-2 text-sm outline-none focus:border-blue-700";
-
 export default function SellPage() {
    return (
       <div className="min-h-screen bg-page font-sans text-zinc-900">
@@ -20,24 +15,24 @@ export default function SellPage() {
             <h1 className="text-2xl font-bold">Sell Your Vehicle</h1>
             <form className="mt-6 space-y-5">
                <div>
-                  <label htmlFor="vin" className={labelClasses}>
+                  <label htmlFor="vin" className="form-label">
                      VIN #
                   </label>
                   <input
                      id="vin"
                      type="text"
                      placeholder="e.g. 1HGCM82633A123456"
-                     className={inputClasses}
+                     className="form-input"
                   />
                </div>
                <div>
-                  <label htmlFor="photos" className={labelClasses}>
+                  <label htmlFor="photos" className="form-label">
                      Photos
                   </label>
                   <PhotoUpload />
                </div>
                <div>
-                  <label htmlFor="mileage" className={labelClasses}>
+                  <label htmlFor="mileage" className="form-label">
                      Mileage
                   </label>
                   <input
@@ -45,14 +40,14 @@ export default function SellPage() {
                      type="number"
                      min={0}
                      placeholder="e.g. 125000"
-                     className={inputClasses}
+                     className="form-input"
                   />
                </div>
                <div>
-                  <label htmlFor="condition" className={labelClasses}>
+                  <label htmlFor="condition" className="form-label">
                      Condition
                   </label>
-                  <select id="condition" defaultValue="" className={inputClasses}>
+                  <select id="condition" defaultValue="" className="form-input">
                      <option value="" disabled>
                         Select condition
                      </option>
@@ -62,14 +57,14 @@ export default function SellPage() {
                   </select>
                </div>
                <div>
-                  <label htmlFor="notes" className={labelClasses}>
+                  <label htmlFor="notes" className="form-label">
                      Notes
                   </label>
                   <textarea
                      id="notes"
                      rows={4}
                      placeholder="Does it have any damage?"
-                     className={`${inputClasses} resize-y`}
+                     className="form-input resize-y"
                   />
                </div>
                <button
