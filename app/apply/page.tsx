@@ -2,7 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useState } from "react";
-import { Header } from "../components/header";
+import { Header } from "@/components/header";
 import {
    isAgeAtLeast18,
    isDriverLicenseNumber,
@@ -15,7 +15,7 @@ import {
    isZipCode,
    ResidenceType,
    STATE_CODES,
-} from "../lib/application";
+} from "@/lib/application";
 
 type EmploymentFormEntry = {
    employerName: string;

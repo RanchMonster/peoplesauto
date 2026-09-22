@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Header } from "../components/header";
-import { PhotoUpload } from "../components/photo-upload";
+import { Header } from "@/components/header";
+import { PhotoUpload } from "@/components/photo-upload";
 
 export const metadata: Metadata = {
    title: "Sell Your Vehicle | Peoples Auto",

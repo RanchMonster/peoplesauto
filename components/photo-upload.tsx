@@ -14,6 +14,7 @@ export function PhotoUpload() {
   }, []);
 
   const rebuildUrls = (files: File[]) => {
+    urlsRef.current.forEach((url) => URL.revokeObjectURL(url));
     urlsRef.current = files.map((f) => URL.createObjectURL(f));
     setUrls(
       files.map((f, i) => ({

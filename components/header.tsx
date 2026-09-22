@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Header() {
    return (
-      <header className="bg-page">
+      <header className="sticky top-0 z-50 bg-page">
          <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-3">
             <Link
                href="/sell"
@@ -13,7 +13,7 @@ export function Header() {
                   <br />
                   vehicles
                </span>
-               <span className="rounded-md bg-blue-700 px-4 py-2 text-sm font-semibold text-white">
+               <span className="rounded-md bg-blue-700 px-6 py-3 text-base font-semibold text-white">
                   Sell your vehicle to us
                </span>
             </Link>

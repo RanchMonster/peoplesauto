@@ -12,6 +12,40 @@ export type Vehicle = {
    image: string;
 };
 
+export enum Rate {
+   Excellent = 0.0525,
+   Good = 0.0999,
+   Fair = 0.1299,
+   Poor = 0.18,
+}
+
+export function getRate(creditScore: number): Rate {
+   if (creditScore >= 780) {
+      return Rate.Excellent;
+   } else if (creditScore >= 650) {
+      return Rate.Good;
+   } else if (creditScore >= 600) {
+      return Rate.Fair;
+   }
+   return Rate.Poor;
+}
+
+// rate is an annual APR; the amortization formula uses the monthly rate
+export function calculateTotalMonthly(
+   months: number,
+   price: number,
+   rate: number,
+   downPayment: number
+): number {
+   const principal = price - downPayment;
+   const monthlyRate = rate / 12;
+   return (
+      principal *
+      ((monthlyRate * (1 + monthlyRate) ** months) /
+         ((1 + monthlyRate) ** months - 1))
+   );
+}
+
 // default template for vehicles
 export const VEHICLES: Vehicle[] = [
    {
@@ -87,14 +121,6 @@ export const VEHICLES: Vehicle[] = [
          "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=70",
    },
 ];
-
-export const HERO_IMAGES = [
-   {
-      alt: "Ford F-150 Raptor",
-      src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/2013_Ford_F-150_Raptor_SVT_Roush.jpg/1920px-2013_Ford_F-150_Raptor_SVT_Roush.jpg",
-   },
-   {
-      alt: "Ram 1500 TRX",
-      src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Ram_1500_TRX_1X7A0057.jpg/1920px-Ram_1500_TRX_1X7A0057.jpg",
-   },
-];
+export function getVehicle(id: string): Vehicle | undefined {
+   return VEHICLES.find((v) => v.id === id);
+}

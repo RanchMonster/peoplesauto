@@ -1,11 +1,43 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { Vehicle } from "../lib/inventory";
+import type { Vehicle } from "@/lib/inventory";
 
 const controlClasses =
    "rounded border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-blue-700";
+
+function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
+   return (
+      <Link
+         href={`/details/${vehicle.id}`}
+         className="overflow-hidden rounded border border-zinc-200 bg-white transition hover:border-blue-700"
+      >
+         <Image
+            src={vehicle.image}
+            alt={`${vehicle.year} ${vehicle.name}`}
+            width={900}
+            height={600}
+            className="h-52 w-full object-cover"
+         />
+         <div className="p-4">
+            <h3 className="font-semibold text-zinc-900">
+               {vehicle.year} {vehicle.name}
+            </h3>
+            <p className="text-sm text-zinc-500">{vehicle.trim}</p>
+            <div className="mt-3 flex items-end justify-between border-t border-zinc-100 pt-3">
+               <p className="text-xl font-bold text-zinc-900">
+                  ${vehicle.price.toLocaleString()}
+               </p>
+               <p className="text-sm text-zinc-500">
+                  {vehicle.miles.toLocaleString()} mi
+               </p>
+            </div>
+         </div>
+      </Link>
+   );
+}
 
 export function InventoryGrid({ vehicles }: { vehicles: Vehicle[] }) {
    const [query, setQuery] = useState("");
@@ -70,39 +102,7 @@ export function InventoryGrid({ vehicles }: { vehicles: Vehicle[] }) {
          ) : (
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                {filtered.map((v) => (
-                  <div
-                     key={v.id}
-                     className="overflow-hidden rounded border border-zinc-200 bg-white"
-                  >
-                     <Image
-                        src={v.image}
-                        alt={`${v.year} ${v.name}`}
-                        width={900}
-                        height={600}
-                        className="h-52 w-full object-cover"
-                     />
-                     <div className="p-4">
-                        <h3 className="font-semibold text-zinc-900">
-                           {v.year} {v.name}
-                        </h3>
-                        <p className="text-sm text-zinc-500">{v.trim}</p>
-                        <div className="mt-3 flex items-end justify-between border-t border-zinc-100 pt-3">
-                           <div>
-                              <p className="text-xl font-bold text-zinc-900">
-                                 ${v.price.toLocaleString()}
-                              </p>
-                              {v.monthly && (
-                                 <p className="text-xs text-zinc-500">
-                                    or ${v.monthly}/mo*
-                                 </p>
-                              )}
-                           </div>
-                           <p className="text-sm text-zinc-500">
-                              {v.miles.toLocaleString()} mi
-                           </p>
-                        </div>
-                     </div>
-                  </div>
+                  <VehicleCard key={v.id} vehicle={v} />
                ))}
             </div>
          )}

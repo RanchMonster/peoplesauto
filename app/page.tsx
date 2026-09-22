@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { Header } from "./components/header";
-import { InventoryGrid } from "./components/inventory-grid";
-import { VEHICLES } from "./lib/inventory";
+import Link from "next/link";
+import { Header } from "@/components/header";
+import { InventoryGrid } from "@/components/inventory-grid";
+import { VEHICLES } from "@/lib/inventory";
 
 export default function Home() {
    return (
@@ -27,11 +28,12 @@ export default function Home() {
                   Good credit, bad credit — no problem.
                </p>
                <div className="mt-6 flex flex-wrap gap-3">
-                  <button
+                  <Link
+                     href="/apply"
                      className="rounded bg-zinc-900 px-6 py-3 text-base font-semibold text-white transition hover:bg-zinc-700"
                   >
                      Get approved
-                  </button>
+                  </Link>
                </div>
             </div>
          </section>
