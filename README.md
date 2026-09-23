@@ -56,6 +56,10 @@ lib/                 # Data / helper modules (inventory, application)
 public/              # Static assets
 ```
 
+## About this build
+
+This site is a template built for a friend's business using Next.js, React, TypeScript, and Tailwind CSS. If you're enjoying what you see, I'd welcome the opportunity to discuss how I could bring this same care and attention to your team on an ongoing basis — happy to talk anytime.
+
 ## Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs) — learn about Next.js features and API.
