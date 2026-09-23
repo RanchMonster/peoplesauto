@@ -20,7 +20,7 @@ A [Next.js](https://nextjs.org) (App Router) dealership site for Peoples Auto, b
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org) (see `.nvmrc` / engine requirements; a recent Node 20+ is recommended)
+- [Node.js](https://nodejs.org) (a recent Node version 20+ is recommended)
 - npm (bundled with Node.js)
 
 ### Install dependencies

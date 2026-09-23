@@ -83,8 +83,6 @@ const initialForm: RawForm = {
    coApplicant: "no",
 };
 
-const sectionHeading = "mt-2 text-lg font-semibold text-zinc-900";
-
 type TextFieldProps = {
    id: string;
    label: string;
@@ -190,7 +188,7 @@ function PersonalSection({
 }) {
    return (
       <section className="grid gap-4 sm:grid-cols-2">
-         <h2 className={`${sectionHeading} col-span-full`}>
+         <h2 className="mt-2 text-lg font-semibold text-zinc-900 col-span-full">
             Personal Information
          </h2>
          <TextField
@@ -274,7 +272,9 @@ function ResidenceSection({
 }) {
    return (
       <section className="grid gap-4 sm:grid-cols-2">
-         <h2 className={`${sectionHeading} col-span-full`}>Residence</h2>
+         <h2 className="mt-2 text-lg font-semibold text-zinc-900 col-span-full">
+            Residence
+         </h2>
          <TextField
             id="address"
             label="Street address"
@@ -363,7 +363,7 @@ function EmploymentRecordSection({
    const heading = index === 0 ? "Current Employer" : "Previous Employer";
    return (
       <section className="grid gap-4 sm:grid-cols-2">
-         <h3 className={`${sectionHeading} col-span-full`}>
+         <h3 className="mt-2 text-lg font-semibold text-zinc-900 col-span-full">
             {heading}
             {index > 0 && (
                <span className="ml-2 font-normal text-zinc-400">(optional)</span>
@@ -427,7 +427,9 @@ function LoanDetailsSection({
 }) {
    return (
       <section className="grid gap-4 sm:grid-cols-2">
-         <h2 className={`${sectionHeading} col-span-full`}>Loan Details</h2>
+         <h2 className="mt-2 text-lg font-semibold text-zinc-900 col-span-full">
+            Loan Details
+         </h2>
          <TextField
             id="downPayment"
             label="Down payment"
@@ -636,7 +638,9 @@ export default function ApplyPage() {
                <ResidenceSection form={form} errors={errors} set={set} />
 
                <section className="space-y-8">
-                  <h2 className={sectionHeading}>Employment</h2>
+                  <h2 className="mt-2 text-lg font-semibold text-zinc-900">
+                     Employment
+                  </h2>
                   <div className="grid gap-4 sm:grid-cols-2">
                      <TextField
                         id="monthlyIncome"
