@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import type { ChangeEvent } from "react";
 import { useState } from "react";
 import { Header } from "@/components/header";
 import {
@@ -537,7 +537,7 @@ export default function ApplyPage() {
             return { ...f, employment: arr };
          });
 
-   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
       e.preventDefault();
       const nextErrors: Errors = {};
       const addOrder: string[] = [];
